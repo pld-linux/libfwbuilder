@@ -1,3 +1,5 @@
+%bcond_without	snmp	# disable snmp
+%bcond_without	threadsafe_dns	# disable thread safe dns
 Summary:	Firewall Builder API
 Summary(pl):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
@@ -12,11 +14,11 @@ URL:		http://www.fwbuilder.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 # it uses internal symbols from libresolv.a :/
-BuildRequires:	glibc-static
+%{?with_threadsafe_dns:BuildRequires:	glibc-static}
 BuildRequires:	libstdc++-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
-BuildRequires:	net-snmp-devel
+%{?with_snmp:BuildRequires:	net-snmp-devel}
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	qmake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -33,11 +35,11 @@ Summary(pl):	Pliki nag³ówkowe i dokumetacja do libfwbuilder
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 # it uses internal symbols from libresolv.a :/
-Requires:	glibc-static
+%{?with_threadsafe_dns:Requires:	glibc-static}
 Requires:	libstdc++-devel
 Requires:	libxml2-devel
 Requires:	libxslt-devel
-Requires:	net-snmp-devel
+%{?with_snmp:Requires:	net-snmp-devel}
 Requires:	openssl-devel
 Obsoletes:	libfwbuilder-static
 
@@ -55,12 +57,13 @@ Pliki nag³ówkowe i dokumentacja do libfwbuilder.
 %{__perl} -pi -e 's@/lib$@/%{_lib}@' qmake.inc.in
 
 %build
+export QTDIR="%{_usr}"
+export QMAKESPEC="%{_datadir}/qt/mkspecs/linux-g++"
+
 cp -f /usr/share/automake/config.* .
 %{__aclocal}
 %{__autoconf}
-%configure \
-	QMAKE_CXXFLAGS_RELEASE="%{rpmcflags}"
-
+%configure 
 %{__make}
 
 %install
