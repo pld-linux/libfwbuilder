@@ -33,7 +33,7 @@ Summary:	Header files and develpment documentation for libfwbuilder
 Summary(pl):	Pliki nag³ówkowe i dokumetacja do libfwbuilder
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glib-devel
+Requires:	glib-devel >= 1.2.8
 # it uses internal symbols from libresolv.a :/
 Requires:	glibc-static
 Requires:	libstdc++-devel
