@@ -17,8 +17,6 @@ BuildRequires:	openssl-devel
 BuildRequires:	ucd-snmp-devel >= 4.2.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 Firewall Builder API Library.
