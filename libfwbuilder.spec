@@ -1,11 +1,11 @@
 Summary:	Firewall Builder API
 Summary(pl):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
-Version:	0.10.4
-Release:	2
+Version:	0.10.7
+Release:	1
 License:	GPL
 Group:		Libraries
-Source0:	http://prdownloads.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
+Source0:	http://belnet.dl.sourceforge.net/sourceforge/fwbuilder/%{name}-%{version}.tar.gz
 URL:		http://www.fwbuilder.org/
 BuildRequires:	glib-devel >= 1.2.7
 BuildRequires:	libxml2-devel
@@ -65,7 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf doc/{AUTHORS,ChangeLog,Credits}
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
@@ -75,7 +74,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/*.gz
+%doc doc/AUTHORS
+%doc doc/COPYING
+%doc doc/ChangeLog
+%doc doc/Credits
+%doc doc/README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_datadir}/%{name}
 
@@ -83,7 +86,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}-config
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_includedir}/fwbuilder
+%{_includedir}/*
 
 %files static
 %defattr(644,root,root,755)
