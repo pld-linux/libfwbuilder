@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://belnet.dl.sourceforge.net/sourceforge/fwbuilder/%{name}-%{version}.tar.gz
+# Source0-md5:	b379556ef5f4257de734298093df83b8
 URL:		http://www.fwbuilder.org/
 BuildRequires:	automake
 BuildRequires:	glib-devel >= 1.2.7
