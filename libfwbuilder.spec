@@ -2,7 +2,7 @@ Summary:	Firewall Builder API
 Summary(pl):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
 Version:	2.0.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
@@ -52,8 +52,10 @@ Pliki nag³ówkowe i dokumetacja do libfwbuilder.
 %patch0 -p1
 
 %{__perl} -pi -e 's@/usr/lib/libresolv@/usr/%{_lib}/libresolv@' configure.in
+%{__perl} -pi -e 's@/lib$@/%{_lib}@' qmake.inc.in
 
 %build
+cp -f /usr/share/automake/config.* .
 %{__aclocal}
 %{__autoconf}
 %configure \
