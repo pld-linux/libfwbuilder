@@ -2,7 +2,7 @@ Summary:	Firewall Builder API
 Summary(pl):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
 Version:	0.10.4
-Release:	1
+Release:	2
 License:	GPL
 Group:		Libraries
 Source0:	http://prdownloads.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
@@ -11,7 +11,7 @@ BuildRequires:	glib-devel >= 1.2.7
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
 BuildRequires:	openssl-devel
-BuildRequires:	ucd-snmp-devel
+BuildRequires:	ucd-snmp-devel >= 4.2.5
 BuildRequires:	libsigc++1-devel
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
