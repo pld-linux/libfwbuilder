@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://belnet.dl.sourceforge.net/sourceforge/fwbuilder/%{name}-%{version}.tar.gz
+Patch0:		%{name}-cflags.patch
 URL:		http://www.fwbuilder.org/
 BuildRequires:	glib-devel >= 1.2.7
 BuildRequires:	libxml2-devel
@@ -52,10 +53,11 @@ Biblioteka statyczna libfwbuilder.
 
 %prep
 %setup  -q
+%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.* .
-CFLAGS="`xslt-config --cflags`"; export CFLAGS
+CFLAGS="`xslt-config --cflags` %{rpmcflags}"
 %configure2_13
 %{__make}
 
@@ -64,7 +66,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
