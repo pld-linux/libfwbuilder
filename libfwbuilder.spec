@@ -1,23 +1,24 @@
 Summary:	Firewall Builder API
 Summary(pl):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
-Version:	0.10.13
+Version:	1.0.0
 Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/sourceforge/fwbuilder/%{name}-%{version}.tar.gz
-# Source0-md5:	b379556ef5f4257de734298093df83b8
+# Source0-md5:	3d7266f8e26b6354bd5b512f16e2dcfd
 URL:		http://www.fwbuilder.org/
+BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	glib-devel >= 1.2.7
+BuildRequires:	glib-devel >= 1.2.8
 BuildRequires:	libsigc++1-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
 BuildRequires:	openssl-devel >= 0.9.7
 BuildRequires:	net-snmp-compat-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 Firewall Builder API Library.
@@ -54,11 +55,10 @@ Biblioteka statyczna libfwbuilder.
 %setup  -q
 
 %build
-CFLAGS="`xslt-config --cflags` %{rpmcflags}"
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
-%configure2_13
+%configure
 %{__make}
 
 %install
@@ -83,7 +83,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}-config
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
 %{_includedir}/*
 
 %files static
