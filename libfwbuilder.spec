@@ -1,12 +1,13 @@
 Summary:	Firewall Builder API
 Summary(pl):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
-Version:	1.0.0
+Version:	1.0.1
 Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
-# Source0-md5:	3d7266f8e26b6354bd5b512f16e2dcfd
+# Source0-md5:	e292937c9435c4717ccdd7f317a3cefe
+Patch0:		%{name}-static.patch
 URL:		http://www.fwbuilder.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -60,7 +61,8 @@ Static libfwbuilder library.
 Biblioteka statyczna libfwbuilder.
 
 %prep
-%setup  -q
+%setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
