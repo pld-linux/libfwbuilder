@@ -1,6 +1,6 @@
---- libfwbuilder-2.0.0/configure.in.orig	2004-08-01 17:35:21.269298000 +0200
-+++ libfwbuilder-2.0.0/configure.in	2004-08-01 19:12:28.750386536 +0200
-@@ -381,25 +381,10 @@
+--- libfwbuilder-2.0.2/configure.in	2004-08-29 02:38:44.000000000 +0000
++++ libfwbuilder-2.0.2.new/configure.in	2004-09-01 17:02:42.028616496 +0000
+@@ -387,25 +387,10 @@
  
  
  
@@ -26,7 +26,7 @@
  
  
  
-@@ -431,7 +416,6 @@
+@@ -437,7 +422,6 @@
  AC_SUBST(LIB_RESOLV) 
  
  
@@ -34,20 +34,20 @@
  
  
  
-@@ -789,4 +773,4 @@
+@@ -822,4 +806,4 @@
  
  echo "-------------------------------------------------------------------"
  
 -. runqmake.sh
 +. ./runqmake.sh
---- libfwbuilder-2.0.0/qmake.inc.in.orig	2004-07-03 08:36:52.000000000 +0200
-+++ libfwbuilder-2.0.0/qmake.inc.in	2004-08-01 19:20:33.245732048 +0200
-@@ -42,7 +42,7 @@
+--- libfwbuilder-2.0.2/qmake.inc.in	2004-08-29 02:38:44.000000000 +0000
++++ libfwbuilder-2.0.2.new/qmake.inc.in	2004-09-01 17:03:10.374307296 +0000
+@@ -43,7 +43,7 @@
  	migration.path          =$(DDIR)@TEMPLATE_DIR@/migration
  	doc.path                =$(DDIR)@DOCDIR@
  
 -	CONFIG                 += warn_on debug
 +	CONFIG                 += warn_on
- 	INCLUDEPATH            +=  @XML_CFLAGS_Q@ @XSLT_CFLAGS_Q@ @PTHREAD_CFLAGS_Q@ @OPENSSL_CFLAGS_Q@ @LWRES_CFLAGS_Q@
+ 	INCLUDEPATH            += /usr/include @XML_CFLAGS_Q@ @XSLT_CFLAGS_Q@ @PTHREAD_CFLAGS_Q@ @OPENSSL_CFLAGS_Q@ @LWRES_CFLAGS_Q@
  	QMAKE_CFLAGS_DEBUG     += -Wno-unused-parameter
  	QMAKE_CFLAGS_RELEASE   += -Wno-unused-parameter
