@@ -11,6 +11,8 @@ URL:		http://www.fwbuilder.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib-devel >= 1.2.8
+# it uses internal symbols from libresolv.a :/
+BuildRequires:	glibc-static
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel
@@ -31,6 +33,8 @@ Summary(pl):	Pliki nag³ówkowe i dokumetacja do libfwbuilder
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
 Requires:	glib-devel
+# it uses internal symbols from libresolv.a :/
+Requires:	glibc-static
 Requires:	libstdc++-devel
 Requires:	libxml2-devel
 Requires:	libxslt-devel
