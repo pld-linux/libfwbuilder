@@ -6,12 +6,12 @@
 Summary:	Firewall Builder API
 Summary(pl):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
-Version:	2.0.2
+Version:	2.0.3
 Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
-# Source0-md5:	8c89034ed4320608258db5665c7f3abf
+# Source0-md5:	d4bb71ff63ca2f5dbff8f85b59b7c3ab
 Patch0:		%{name}-configure.patch
 URL:		http://www.fwbuilder.org/
 BuildRequires:	autoconf
