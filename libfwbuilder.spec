@@ -11,7 +11,7 @@ URL:		http://www.fwbuilder.org/
 BuildRequires:	glib-devel >= 1.2.7
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
-BuildRequires:	openssl-devel
+BuildRequires:	openssl-devel >= 0.9.6m
 BuildRequires:	ucd-snmp-devel >= 4.2.5
 BuildRequires:	libsigc++1-devel
 BuildRequires:	libstdc++-devel
