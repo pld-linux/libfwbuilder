@@ -1,12 +1,12 @@
 Summary:	Firewall Builder API
 Summary(pl):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
-Version:	1.0.2
-Release:	1
+Version:	2.0.0
+Release:	0.1
 License:	GPL
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
-# Source0-md5:	f5e50b8165b1dded26f461cf488553ea
+#Source0:	http://dl.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
+Source0:	ftp://downloads.fwbuilder.org/pub/fwbuilder/nightly_builds/040701/libfwbuilder-2.0.0.tar.gz
 Patch0:		%{name}-static.patch
 URL:		http://www.fwbuilder.org/
 BuildRequires:	autoconf
@@ -19,6 +19,7 @@ BuildRequires:	libtool
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
 BuildRequires:	net-snmp-devel
+BuildRequires:	qmake
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
