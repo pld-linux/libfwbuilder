@@ -5,19 +5,18 @@ Version:	1.0.0
 Release:	1
 License:	GPL
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/sourceforge/fwbuilder/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
 # Source0-md5:	3d7266f8e26b6354bd5b512f16e2dcfd
 URL:		http://www.fwbuilder.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib-devel >= 1.2.8
-BuildRequires:	libsigc++1-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
+BuildRequires:	net-snmp-devel
 BuildRequires:	openssl-devel >= 0.9.7
-BuildRequires:	net-snmp-compat-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,7 +30,12 @@ Summary:	Header files and develpment documentation for libfwbuilder
 Summary(pl):	Pliki nag³ówkowe i dokumetacja do libfwbuilder
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	glib-devel
 Requires:	libstdc++-devel
+Requires:	libxml2-devel
+Requires:	libxslt-devel
+Requires:	net-snmp-devel
+Requires:	openssl-devel
 
 %description devel
 Header files and develpment documentation for libfwbuilder.
@@ -67,11 +71,11 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
