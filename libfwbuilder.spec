@@ -74,11 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/AUTHORS
-%doc doc/COPYING
-%doc doc/ChangeLog
-%doc doc/Credits
-%doc doc/README
+%doc doc/{AUTHORS,ChangeLogm,Credits,README}
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_datadir}/%{name}
 
