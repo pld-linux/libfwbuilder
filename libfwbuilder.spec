@@ -1,5 +1,8 @@
-%bcond_without	snmp	# disable snmp
-%bcond_without	threadsafe_dns	# disable thread safe dns
+#
+# Conditional build:
+%bcond_without	snmp		# disable SNMP
+%bcond_without	threadsafe_dns	# disable thread safe DNS
+#
 Summary:	Firewall Builder API
 Summary(pl):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
