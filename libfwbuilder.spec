@@ -1,12 +1,11 @@
 Summary:	Firewall Builder API
 Summary(pl):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
-Version:	0.10.7
+Version:	0.10.11
 Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://belnet.dl.sourceforge.net/sourceforge/fwbuilder/%{name}-%{version}.tar.gz
-Patch0:		%{name}-cflags.patch
 URL:		http://www.fwbuilder.org/
 BuildRequires:	automake
 BuildRequires:	glib-devel >= 1.2.7
@@ -54,11 +53,12 @@ Biblioteka statyczna libfwbuilder.
 
 %prep
 %setup  -q
-%patch0 -p1
 
 %build
-cp -f /usr/share/automake/config.* .
 CFLAGS="`xslt-config --cflags` %{rpmcflags}"
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
 %configure2_13
 %{__make}
 
@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/{AUTHORS,ChangeLogm,Credits,README}
+%doc doc/{AUTHORS,ChangeLog,Credits,README}
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_datadir}/%{name}
 
@@ -84,6 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/%{name}-config
 %attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
 %{_includedir}/*
 
 %files static
