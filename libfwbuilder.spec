@@ -1,7 +1,7 @@
 Summary:	Firewall Builder API
 Summary(pl):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
-Version:	0.10.12
+Version:	0.10.13
 Release:	1
 License:	GPL
 Group:		Libraries
@@ -14,7 +14,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
 BuildRequires:	openssl-devel >= 0.9.7
-BuildRequires:	ucd-snmp-devel >= 4.2.5
+BuildRequires:	net-snmp-compat-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 
