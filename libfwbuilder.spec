@@ -45,7 +45,7 @@ Obsoletes:	libfwbuilder-static
 Header files and develpment documentation for libfwbuilder.
 
 %description devel -l pl
-Pliki nag³ówkowe i dokumetacja do libfwbuilder.
+Pliki nag³ówkowe i dokumentacja do libfwbuilder.
 
 %prep
 %setup -q
