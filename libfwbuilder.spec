@@ -8,13 +8,14 @@ Group:		Libraries
 Source0:	http://belnet.dl.sourceforge.net/sourceforge/fwbuilder/%{name}-%{version}.tar.gz
 Patch0:		%{name}-cflags.patch
 URL:		http://www.fwbuilder.org/
+BuildRequires:	automake
 BuildRequires:	glib-devel >= 1.2.7
+BuildRequires:	libsigc++1-devel
+BuildRequires:	libstdc++-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
 BuildRequires:	openssl-devel
 BuildRequires:	ucd-snmp-devel >= 4.2.5
-BuildRequires:	libsigc++1-devel
-BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
