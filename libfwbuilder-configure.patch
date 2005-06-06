@@ -1,0 +1,49 @@
+diff -ur libfwbuilder-2.0.7/configure.in libfwbuilder-2.0.7.new/configure.in
+--- libfwbuilder-2.0.7/configure.in	2005-01-25 07:33:04.000000000 +0000
++++ libfwbuilder-2.0.7.new/configure.in	2005-06-06 13:29:20.893053248 +0000
+@@ -387,25 +387,10 @@
+ 
+ 
+ 
+-dnl Check for bind specific headers and libraries
+-dnl if they are present, use them, rather than ones
+-dnl coming with libc.
+-
+-AC_CHECK_HEADER(bind/resolv.h, [
+-  CPPFLAGS="$CPPFLAGS -I/usr/include/bind"
+-  HAVE_RESOLV_H=yes
+-] , [ AC_CHECK_HEADER(/usr/local/bind/include/resolv.h, [
+-    CPPFLAGS="$CPPFLAGS -I/usr/local/bind/include/"
+-    HAVE_RESOLV_H=yes
+-  ], [ 
+     AC_CHECK_HEADERS([resolv.h], [ HAVE_RESOLV_H=yes ], [], [
+ #include <sys/types.h>
+ #include <netinet/in.h> 
+     ] )
+-  ] )
+-], [
+-#include <netinet/in.h>
+-] )
+ 
+ 
+ 
+@@ -437,7 +422,6 @@
+ AC_SUBST(LIB_RESOLV) 
+ 
+ 
+-AC_CHECK_LIB(bind_r, res_init)
+ 
+ 
+ 
+diff -ur libfwbuilder-2.0.7/qmake.inc.in libfwbuilder-2.0.7.new/qmake.inc.in
+--- libfwbuilder-2.0.7/qmake.inc.in	2005-04-26 07:16:02.000000000 +0000
++++ libfwbuilder-2.0.7.new/qmake.inc.in	2005-06-06 13:29:40.507071464 +0000
+@@ -27,7 +27,7 @@
+ 	migration.path          =$(DDIR)@TEMPLATE_DIR@/migration
+ 	doc.path                =$(DDIR)@DOCDIR@
+ 
+-	CONFIG                 += warn_on debug
++	CONFIG                 += warn_on
+ 	QMAKE_CFLAGS_DEBUG     += -Wno-unused-parameter
+ 	QMAKE_CFLAGS_RELEASE   += -Wno-unused-parameter
+ 	QMAKE_CXXFLAGS_DEBUG   += -Wno-unused-parameter
