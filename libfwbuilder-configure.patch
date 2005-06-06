@@ -1,5 +1,6 @@
---- libfwbuilder-2.0.2/configure.in	2004-08-29 02:38:44.000000000 +0000
-+++ libfwbuilder-2.0.2.new/configure.in	2004-09-01 17:02:42.028616496 +0000
+diff -ur libfwbuilder-2.0.7/configure.in libfwbuilder-2.0.7.new/configure.in
+--- libfwbuilder-2.0.7/configure.in	2005-01-25 07:33:04.000000000 +0000
++++ libfwbuilder-2.0.7.new/configure.in	2005-06-06 13:29:20.893053248 +0000
 @@ -387,25 +387,10 @@
  
  
@@ -34,14 +35,15 @@
  
  
  
---- libfwbuilder-2.0.2/qmake.inc.in	2004-08-29 02:38:44.000000000 +0000
-+++ libfwbuilder-2.0.2.new/qmake.inc.in	2004-09-01 17:03:10.374307296 +0000
-@@ -43,7 +43,7 @@
+diff -ur libfwbuilder-2.0.7/qmake.inc.in libfwbuilder-2.0.7.new/qmake.inc.in
+--- libfwbuilder-2.0.7/qmake.inc.in	2005-04-26 07:16:02.000000000 +0000
++++ libfwbuilder-2.0.7.new/qmake.inc.in	2005-06-06 13:29:40.507071464 +0000
+@@ -27,7 +27,7 @@
  	migration.path          =$(DDIR)@TEMPLATE_DIR@/migration
  	doc.path                =$(DDIR)@DOCDIR@
  
 -	CONFIG                 += warn_on debug
 +	CONFIG                 += warn_on
- 	INCLUDEPATH            += /usr/include @XML_CFLAGS_Q@ @XSLT_CFLAGS_Q@ @PTHREAD_CFLAGS_Q@ @OPENSSL_CFLAGS_Q@ @LWRES_CFLAGS_Q@
  	QMAKE_CFLAGS_DEBUG     += -Wno-unused-parameter
  	QMAKE_CFLAGS_RELEASE   += -Wno-unused-parameter
+ 	QMAKE_CXXFLAGS_DEBUG   += -Wno-unused-parameter
