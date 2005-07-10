@@ -6,12 +6,12 @@
 Summary:	Firewall Builder API
 Summary(pl):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
-Version:	2.0.7
+Version:	2.0.8
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
-# Source0-md5:	bf2c35710ee69380754a1c1a0fb81551
+# Source0-md5:	a554710b26bc42c895187f6a2b78b27f
 Patch0:		%{name}-configure.patch
 URL:		http://www.fwbuilder.org/
 BuildRequires:	autoconf
@@ -66,7 +66,7 @@ export QMAKESPEC="%{_datadir}/qt/mkspecs/linux-g++"
 cp -f /usr/share/automake/config.* .
 %{__aclocal}
 %{__autoconf}
-%configure 
+%configure
 %{__make}
 
 %install
