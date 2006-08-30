@@ -13,7 +13,7 @@ Version:	%{_majver}.%{_minver}.5
 Release:	0.1
 License:	GPL v2
 Group:		Libraries
-Source0:	http://www.fwbuilder.org/nightly_builds/build-109/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
 # Source0-md5:	63a038b624900262074e7efc6e0f3894
 Patch0:		%{name}-configure.patch
 URL:		http://www.fwbuilder.org/
