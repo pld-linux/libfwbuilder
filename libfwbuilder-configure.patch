@@ -1,7 +1,7 @@
-diff -ur libfwbuilder-2.0.7/configure.in libfwbuilder-2.0.7.new/configure.in
---- libfwbuilder-2.0.7/configure.in	2005-01-25 07:33:04.000000000 +0000
-+++ libfwbuilder-2.0.7.new/configure.in	2005-06-06 13:29:20.893053248 +0000
-@@ -387,25 +387,10 @@
+diff -uN libfwbuilder-2.1.5.orig/configure.in libfwbuilder-2.1.5/configure.in
+--- libfwbuilder-2.1.5.orig/configure.in	2006-08-20 18:36:03.000000000 +0200
++++ libfwbuilder-2.1.5/configure.in	2006-08-30 16:59:17.000000000 +0200
+@@ -391,25 +391,10 @@
  
  
  
@@ -16,7 +16,8 @@ diff -ur libfwbuilder-2.0.7/configure.in libfwbuilder-2.0.7.new/configure.in
 -    CPPFLAGS="$CPPFLAGS -I/usr/local/bind/include/"
 -    HAVE_RESOLV_H=yes
 -  ], [ 
-     AC_CHECK_HEADERS([resolv.h], [ HAVE_RESOLV_H=yes ], [], [
+-    AC_CHECK_HEADERS([resolv.h], [ HAVE_RESOLV_H=yes ], [], [
++   AC_CHECK_HEADERS([resolv.h], [ HAVE_RESOLV_H=yes ], [], [
  #include <sys/types.h>
  #include <netinet/in.h> 
      ] )
@@ -26,18 +27,21 @@ diff -ur libfwbuilder-2.0.7/configure.in libfwbuilder-2.0.7.new/configure.in
 -] )
  
  
- 
-@@ -437,7 +422,6 @@
- AC_SUBST(LIB_RESOLV) 
- 
- 
--AC_CHECK_LIB(bind_r, res_init)
- 
- 
- 
-diff -ur libfwbuilder-2.0.7/qmake.inc.in libfwbuilder-2.0.7.new/qmake.inc.in
---- libfwbuilder-2.0.7/qmake.inc.in	2005-04-26 07:16:02.000000000 +0000
-+++ libfwbuilder-2.0.7.new/qmake.inc.in	2005-06-06 13:29:40.507071464 +0000
+ dnl
+@@ -457,7 +442,6 @@
+   fi
+   
+   AC_SUBST(LIB_RESOLV) 
+-  AC_CHECK_LIB(bind_r, res_init)
+   
+   dnl AC_PATH_PROG(ISC_CONFIG, isc-config.sh, )
+   dnl 
+Wspólne podkatalogi: libfwbuilder-2.1.5.orig/doc i libfwbuilder-2.1.5/doc
+Wspólne podkatalogi: libfwbuilder-2.1.5.orig/etc i libfwbuilder-2.1.5/etc
+Wspólne podkatalogi: libfwbuilder-2.1.5.orig/migration i libfwbuilder-2.1.5/migration
+diff -uN libfwbuilder-2.1.5.orig/qmake.inc.in libfwbuilder-2.1.5/qmake.inc.in
+--- libfwbuilder-2.1.5.orig/qmake.inc.in	2006-06-22 06:50:45.000000000 +0200
++++ libfwbuilder-2.1.5/qmake.inc.in	2006-08-30 17:34:39.000000000 +0200
 @@ -27,7 +27,7 @@
  	migration.path          =$(DDIR)@TEMPLATE_DIR@/migration
  	doc.path                =$(DDIR)@DOCDIR@
@@ -46,4 +50,5 @@ diff -ur libfwbuilder-2.0.7/qmake.inc.in libfwbuilder-2.0.7.new/qmake.inc.in
 +	CONFIG                 += warn_on
  	QMAKE_CFLAGS_DEBUG     += -Wno-unused-parameter
  	QMAKE_CFLAGS_RELEASE   += -Wno-unused-parameter
- 	QMAKE_CXXFLAGS_DEBUG   += -Wno-unused-parameter
+ 	QMAKE_CXXFLAGS_DEBUG   += -Wno-unused-parameter @CXXFLAGS@
+Wspólne podkatalogi: libfwbuilder-2.1.5.orig/src i libfwbuilder-2.1.5/src
