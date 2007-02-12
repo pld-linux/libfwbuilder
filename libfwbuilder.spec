@@ -7,7 +7,7 @@
 %define		_minver		1
 
 Summary:	Firewall Builder API
-Summary(pl):	Biblioteka Firewall Buildera
+Summary(pl.UTF-8):   Biblioteka Firewall Buildera
 Name:		libfwbuilder
 Version:	%{_majver}.%{_minver}.5
 Release:	0.1
@@ -32,12 +32,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Firewall Builder API Library.
 
-%description -l pl
+%description -l pl.UTF-8
 Biblioteka Firewall Buildera.
 
 %package devel
 Summary:	Header files and develpment documentation for libfwbuilder
-Summary(pl):	Pliki nag≥Ûwkowe i dokumetacja do libfwbuilder
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe i dokumetacja do libfwbuilder
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 # it uses internal symbols from libresolv.a :/
@@ -52,8 +52,8 @@ Obsoletes:	libfwbuilder-static
 %description devel
 Header files and develpment documentation for libfwbuilder.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe i dokumentacja do libfwbuilder.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe i dokumentacja do libfwbuilder.
 
 %prep
 %setup -q
