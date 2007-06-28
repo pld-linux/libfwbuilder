@@ -7,7 +7,7 @@
 %define		_minver		1
 
 Summary:	Firewall Builder API
-Summary(pl.UTF-8):   Biblioteka Firewall Buildera
+Summary(pl.UTF-8):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
 Version:	%{_majver}.%{_minver}.12
 Release:	1
@@ -38,7 +38,7 @@ Biblioteka Firewall Buildera.
 
 %package devel
 Summary:	Header files and develpment documentation for libfwbuilder
-Summary(pl.UTF-8):   Pliki nagłówkowe i dokumetacja do libfwbuilder
+Summary(pl.UTF-8):	Pliki nagłówkowe i dokumetacja do libfwbuilder
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 # it uses internal symbols from libresolv.a :/
@@ -84,8 +84,8 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
