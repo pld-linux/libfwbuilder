@@ -9,14 +9,15 @@
 Summary:	Firewall Builder API
 Summary(pl.UTF-8):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
-Version:	%{_majver}.%{_minver}.16
+Version:	%{_majver}.%{_minver}.18
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
-# Source0-md5:	d00ff0e61e2012478f58475d27d001a9
+# Source0-md5:	9641028c46a58f0369ad6bf4cc4bbf19
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-c++.patch
+Patch2:		%{name}-dont-mess-with-compiler-names-and-ccache.patch
 URL:		http://www.fwbuilder.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -60,6 +61,7 @@ Pliki nagłówkowe i dokumentacja do libfwbuilder.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %{__perl} -pi -e 's@/usr/lib/libresolv@/usr/%{_lib}/libresolv@' configure.in
 %{__perl} -pi -e 's@/lib$@/%{_lib}@' qmake.inc.in
