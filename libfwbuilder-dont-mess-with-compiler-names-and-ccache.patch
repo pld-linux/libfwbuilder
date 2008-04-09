@@ -1,0 +1,48 @@
+--- b.libfwbuilder-2.1.18/runqmake.sh	2006-08-20 07:51:35.000000000 +0200
++++ n.libfwbuilder-2.1.18/runqmake.sh	2008-04-09 19:44:51.000000000 +0200
+@@ -4,23 +4,17 @@
+ 
+ echo "Running qmake: ${QMAKE}"
+ 
+-${QMAKE}
+-${QMAKE}  -o src/Makefile  src/src.pro
++${QMAKE} QMAKE_CXX="$CXX"
++${QMAKE} QMAKE_CXX="$CXX" -o src/Makefile  src/src.pro
+ 
+-if test -n "$CCACHE"; then
+-    ${QMAKE}  'QMAKE_CXX=ccache g++' -o src/fwbuilder/Makefile  src/fwbuilder/fwbuilder.pro
+-    ${QMAKE}  'QMAKE_CXX=ccache g++' -o src/fwcompiler/Makefile src/fwcompiler/fwcompiler.pro
+-    ${QMAKE}  'QMAKE_CXX=ccache g++' -o src/test/Makefile       src/test/test.pro
+-else
+-    ${QMAKE}                         -o src/fwbuilder/Makefile  src/fwbuilder/fwbuilder.pro
+-    ${QMAKE}                         -o src/fwcompiler/Makefile src/fwcompiler/fwcompiler.pro
+-    ${QMAKE}                         -o src/test/Makefile       src/test/test.pro
+-fi
+-
+-${QMAKE} -o src/confscript/Makefile src/confscript/confscript.pro
+-
+-${QMAKE} -o etc/Makefile        etc/etc.pro
+-${QMAKE} -o doc/Makefile        doc/doc.pro
+-${QMAKE} -o migration/Makefile  migration/migration.pro
++${QMAKE} QMAKE_CXX="$CXX" -o src/fwbuilder/Makefile  src/fwbuilder/fwbuilder.pro
++${QMAKE} QMAKE_CXX="$CXX" -o src/fwcompiler/Makefile src/fwcompiler/fwcompiler.pro
++${QMAKE} QMAKE_CXX="$CXX" -o src/test/Makefile       src/test/test.pro
++
++${QMAKE} QMAKE_CXX="$CXX" -o src/confscript/Makefile src/confscript/confscript.pro
++
++${QMAKE} QMAKE_CXX="$CXX" -o etc/Makefile        etc/etc.pro
++${QMAKE} QMAKE_CXX="$CXX" -o doc/Makefile        doc/doc.pro
++${QMAKE} QMAKE_CXX="$CXX" -o migration/Makefile  migration/migration.pro
+ 
+ 
+--- b.libfwbuilder-2.1.18/configure.in	2008-04-08 21:43:13.000000000 +0200
++++ n.libfwbuilder-2.1.18/configure.in	2008-04-08 21:52:15.000000000 +0200
+@@ -665,8 +665,6 @@
+ AC_SUBST(DOCDIR)
+ AC_DEFINE_UNQUOTED(DOCDIR,           "${DOCDIR}")
+ 
+-AC_PATH_PROG(CCACHE, ccache, , )
+-
+ 
+ 
+ 
