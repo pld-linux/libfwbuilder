@@ -3,18 +3,18 @@
 %bcond_without	snmp		# disable SNMP
 %bcond_without	threadsafe_dns	# disable thread safe DNS
 #
-%define		_majver		2
-%define		_minver		1
+%define		_majver		3
+%define		_minver		0
 
 Summary:	Firewall Builder API
 Summary(pl.UTF-8):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
-Version:	%{_majver}.%{_minver}.18
+Version:	%{_majver}.%{_minver}.5
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
-# Source0-md5:	9641028c46a58f0369ad6bf4cc4bbf19
+# Source0-md5:	a47d90726807865f7a5442c5516cce53
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-c++.patch
 Patch2:		%{name}-dont-mess-with-compiler-names-and-ccache.patch
@@ -28,7 +28,7 @@ BuildRequires:	libxml2-devel
 BuildRequires:	libxslt-devel
 %{?with_snmp:BuildRequires:	net-snmp-devel}
 BuildRequires:	openssl-devel >= 0.9.7d
-BuildRequires:	qmake
+BuildRequires:	qt4-qmake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -60,8 +60,8 @@ Pliki nagłówkowe i dokumentacja do libfwbuilder.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
+#%patch1 -p1
+#%patch2 -p1
 
 %{__perl} -pi -e 's@/usr/lib/libresolv@/usr/%{_lib}/libresolv@' configure.in
 %{__perl} -pi -e 's@/lib$@/%{_lib}@' qmake.inc.in
@@ -74,7 +74,8 @@ cp -f /usr/share/automake/config.* .
 %{__aclocal}
 %{__autoconf}
 %configure \
-	--with-templatedir=%{_datadir}/%{name}
+	--with-templatedir=%{_datadir}/%{name} \
+	--with-qmake=qmake-qt4
 %{__make}
 
 %install
@@ -97,6 +98,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/libfwbuilder-config-%{_majver}.%{_minver}
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_includedir}/fwb-%{_majver}.%{_minver}
+%attr(755,root,root) %{_bindir}/libfwbuilder-config-%{_majver}
+%attr(755,root,root) %{_libdir}/lib*.so*
+%{_includedir}/fwb-%{_majver}
