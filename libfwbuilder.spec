@@ -3,18 +3,18 @@
 %bcond_without	snmp		# disable SNMP
 %bcond_without	threadsafe_dns	# disable thread safe DNS
 #
-%define		_majver		3
+%define		_majver		4
 %define		_minver		0
 
 Summary:	Firewall Builder API
 Summary(pl.UTF-8):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
-Version:	%{_majver}.%{_minver}.5
+Version:	%{_majver}.%{_minver}.2
 Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
-# Source0-md5:	a47d90726807865f7a5442c5516cce53
+# Source0-md5:	65826d8f5d5415a6e6dd2436ce57d3fd
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-c++.patch
 Patch2:		%{name}-dont-mess-with-compiler-names-and-ccache.patch
@@ -68,7 +68,7 @@ Pliki nagłówkowe i dokumentacja do libfwbuilder.
 
 %build
 export QTDIR="%{_usr}"
-export QMAKESPEC="%{_datadir}/qt/mkspecs/linux-g++"
+export QMAKESPEC="%{_datadir}/qt4/mkspecs/linux-g++"
 
 cp -f /usr/share/automake/config.* .
 %{__aclocal}
