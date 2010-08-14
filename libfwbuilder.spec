@@ -10,7 +10,7 @@ Summary:	Firewall Builder API
 Summary(pl.UTF-8):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
 Version:	%{_majver}.%{_minver}.2
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
@@ -93,11 +93,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/{AUTHORS,ChangeLog,Credits,README}
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libfw*.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libfw*.so.9
 %{_datadir}/%{name}
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/libfwbuilder-config-%{_majver}
-%attr(755,root,root) %{_libdir}/lib*.so*
+%attr(755,root,root) %{_libdir}/libfw*.so
 %{_includedir}/fwb-%{_majver}
