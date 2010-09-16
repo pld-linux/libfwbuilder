@@ -4,17 +4,17 @@
 %bcond_without	threadsafe_dns	# disable thread safe DNS
 #
 %define		_majver		4
-%define		_minver		0
+%define		_minver		1
 
 Summary:	Firewall Builder API
 Summary(pl.UTF-8):	Biblioteka Firewall Buildera
 Name:		libfwbuilder
-Version:	%{_majver}.%{_minver}.2
-Release:	2
+Version:	%{_majver}.%{_minver}.1
+Release:	1
 License:	GPL v2
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/fwbuilder/%{name}-%{version}.tar.gz
-# Source0-md5:	65826d8f5d5415a6e6dd2436ce57d3fd
+# Source0-md5:	f1a989c69bc65ccfef623eec391a513e
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-c++.patch
 Patch2:		%{name}-dont-mess-with-compiler-names-and-ccache.patch
@@ -96,6 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libfw*.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libfw*.so.9
 %{_datadir}/%{name}
+
 
 %files devel
 %defattr(644,root,root,755)
